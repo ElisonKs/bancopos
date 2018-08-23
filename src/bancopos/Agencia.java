@@ -4,19 +4,16 @@ public class Agencia {
 
 	private int codigo;
 
-	private char endereco;
+	private String endereco;
 
-	private char telefone;
+	private String telefone;
 
-    public Agencia(int codigo, char endereco, char telefone) {
+    public Agencia(int codigo, String endereco, String telefone) {
         this.codigo = codigo;
         this.endereco = endereco;
         this.telefone = telefone;
     }
 
-        
-        
-        
     public int getCodigo() {
         return codigo;
     }
@@ -25,19 +22,19 @@ public class Agencia {
         this.codigo = codigo;
     }
 
-    public char getEndereco() {
+    public String getEndereco() {
         return endereco;
     }
 
-    public void setEndereco(char endereco) {
+    public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
 
-    public char getTelefone() {
+    public String getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(char telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 
