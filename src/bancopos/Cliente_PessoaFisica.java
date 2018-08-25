@@ -10,6 +10,7 @@ public class Cliente_PessoaFisica extends Cliente {
         super(id, endereco, tipo, email, telefone);
         this.cpf = cpf;
         this.nome = nome;
+        super.setTipo(TipoPessoa.FISICA);
     }
 
     public int getCpf() {

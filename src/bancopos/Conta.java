@@ -1,31 +1,54 @@
 package bancopos;
 
-public abstract class Conta {
+public class Conta implements ContaCorrente,ContaPoupanca {
 
-	private Cliente cliente_conta;
+	
 
 	private Agencia agencia_conta;
+        
+        private double saldo;
 
     public Conta(Cliente cliente_conta, Agencia agencia_conta) {
-        this.cliente_conta = cliente_conta;
+     
         this.agencia_conta = agencia_conta;
     }
 
-    public Cliente getCliente_conta() {
-        return cliente_conta;
-    }
+   
 
-    public void setCliente_conta(Cliente cliente_conta) {
-        this.cliente_conta = cliente_conta;
-    }
+   
 
+    @Override
     public Agencia getAgencia_conta() {
         return agencia_conta;
     }
 
+    @Override
     public void setAgencia_conta(Agencia agencia_conta) {
         this.agencia_conta = agencia_conta;
     }
+
+    @Override
+    public double getSaldo() {
+        return saldo;
+    }
+
+    @Override
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
+    }
+
+    @Override
+    public Cliente getCliente_conta() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setCliente_conta(Cliente cliente_conta) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
+    
     
     
         

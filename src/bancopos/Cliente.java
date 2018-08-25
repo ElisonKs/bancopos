@@ -1,5 +1,7 @@
 package bancopos;
 
+import java.util.ArrayList;
+
 public abstract class Cliente {
 
 	private int id;
@@ -10,6 +12,7 @@ public abstract class Cliente {
 
 	private String telefone;
         
+        ArrayList<Conta> contasCliente;
         // Enum
         private TipoPessoa tipo;
 
@@ -19,8 +22,19 @@ public abstract class Cliente {
         this.endereco = endereco;
         this.email = email;
         this.telefone = telefone;
+        this.contasCliente = new ArrayList();
     }
 
+    public void adicionarConta(Conta novaConta)
+    {
+        this.contasCliente.add(novaConta);
+    }
+    
+    public void listarContas()
+    {
+        
+    }
+    
     public int getId() {
         return id;
     }
