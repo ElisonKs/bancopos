@@ -9,12 +9,10 @@ package bancopos;
  *
  * @author Elison
  */
-public class ContaPoupanca extends Conta {
-
-    public ContaPoupanca(Cliente cliente_conta, Agencia agencia_conta) {
-        super(cliente_conta, agencia_conta);
-    }
-
-   
+public interface CreditoInterface {
+        
+        public void depositar(double valor);
+        
+    
     
 }

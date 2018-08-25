@@ -9,18 +9,12 @@ package bancopos;
  *
  * @author Elison
  */
-public interface ContaCorrente extends ContaPoupanca {
+public class ContaCorrente extends Conta {
 
-    Agencia getAgencia_conta();
+    public ContaCorrente(Cliente cliente_conta, Agencia agencia_conta) {
+        super(cliente_conta, agencia_conta);
+    }
 
-    Cliente getCliente_conta();
-
-    double getSaldo();
-
-    void setAgencia_conta(Agencia agencia_conta);
-
-    void setCliente_conta(Cliente cliente_conta);
-
-    void setSaldo(double saldo);
+  
     
 }

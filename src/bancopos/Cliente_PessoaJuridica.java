@@ -13,7 +13,7 @@ public class Cliente_PessoaJuridica extends Cliente {
         this.cnpj = cnpj;
         this.razao_social = razao_social;
         this.nome_fantasia = nome_fantasia;
-          super.setTipo(TipoPessoa.JURIDICA);
+        super.setTipo(TipoPessoa.JURIDICA);
     }
 
     public int getCnpj() {

@@ -1,6 +1,6 @@
 package bancopos;
 
-public class Conta implements ContaCorrente,ContaPoupanca {
+public class Conta {
 
 	
 
@@ -13,40 +13,65 @@ public class Conta implements ContaCorrente,ContaPoupanca {
         this.agencia_conta = agencia_conta;
     }
 
-   
-
-   
-
-    @Override
     public Agencia getAgencia_conta() {
         return agencia_conta;
     }
 
-    @Override
     public void setAgencia_conta(Agencia agencia_conta) {
         this.agencia_conta = agencia_conta;
     }
 
-    @Override
     public double getSaldo() {
         return saldo;
     }
 
-    @Override
     public void setSaldo(double saldo) {
         this.saldo = saldo;
     }
 
-    @Override
-    public Cliente getCliente_conta() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+   
+
+   
+
+
+/**
+ *
+ * @author Elison
+ */
+
+    
+    public void sacar(double valor) {
+      if(this.consultarSaldo() >= valor)
+          setSaldo(this.consultarSaldo() - valor);
+      else
+          System.out.println("Saldo insuficiente para realizar esta operação!");
+                
     }
 
-    @Override
-    public void setCliente_conta(Cliente cliente_conta) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+ 
+    public double consultarSaldo() {
+       return this.getSaldo();
+    }
+
+  
+    public void depositar(double valor) {
+        this.setSaldo(this.consultarSaldo() + valor);
+    }
+
+
+    public void transferir(double valor) {
+       if(this.consultarSaldo()>= valor)
+       {
+           setSaldo(this.consultarSaldo() - valor);
+           setSaldo(getSaldo() + valor);
+       }
+       else
+             System.out.println("Saldo insuficiente para realizar esta operação!");
     }
     
+    
+    
+
     
     
     
