@@ -2,22 +2,22 @@ package bancopos;
 
 public class Cliente_PessoaFisica extends Cliente {
 
-	private int cpf;
+	private String cpf;
 
 	private String nome;
 
-    public Cliente_PessoaFisica(int cpf, String nome, int id, String endereco, TipoPessoa tipo, String email, String telefone) {
-        super(id, endereco, tipo, email, telefone);
+    public Cliente_PessoaFisica(String cpf, String nome, int id, String endereco,  String email, String telefone) {
+        super(id, endereco, TipoPessoa.FISICA, email, telefone);
         this.cpf = cpf;
         this.nome = nome;
-        super.setTipo(TipoPessoa.FISICA);
+       
     }
 
-    public int getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(int cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 

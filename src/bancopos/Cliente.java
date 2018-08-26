@@ -18,7 +18,7 @@ public abstract class Cliente {
 
     public Cliente(int id, String endereco, TipoPessoa tipo, String email, String telefone) {
         this.id = id;
-        this.tipo = tipo;
+       this.tipo = tipo;
         this.endereco = endereco;
         this.email = email;
         this.telefone = telefone;

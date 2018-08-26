@@ -3,10 +3,10 @@ package bancopos;
 public class Conta {
 
 	
-
-	private Agencia agencia_conta;
+    protected final double taxPoupanca = 1.00;
+    private Agencia agencia_conta;
         
-        private double saldo;
+    private double saldo;
 
     public Conta(Cliente cliente_conta, Agencia agencia_conta) {
      
