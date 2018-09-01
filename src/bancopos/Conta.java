@@ -1,16 +1,15 @@
 package bancopos;
 
-public class Conta {
+public class Conta implements CreditoInterface, DebitoInterface {
 
-	
     protected final double taxPoupanca = 1.00;
     private Agencia agencia_conta;
-        
+
     private double saldo;
 
     public Conta(Cliente cliente_conta, Agencia agencia_conta) {
-     
         this.agencia_conta = agencia_conta;
+        this.saldo = 0.0;
     }
 
     public Agencia getAgencia_conta() {
@@ -29,54 +28,32 @@ public class Conta {
         this.saldo = saldo;
     }
 
-   
-
-   
-
-
-/**
- *
- * @author Elison
- */
-
-    
-    public void sacar(double valor) {
-      if(this.consultarSaldo() >= valor)
-          setSaldo(this.consultarSaldo() - valor);
-      else
-          System.out.println("Saldo insuficiente para realizar esta operação!");
-                
+    @Override
+    public void sacar(double valor) throws SaldoInsuficienteException {
+        if (this.consultarSaldo() >= valor) {
+            setSaldo(this.consultarSaldo() - valor);
+        } else {
+            throw new SaldoInsuficienteException();
+        }
     }
 
- 
     public double consultarSaldo() {
-       return this.getSaldo();
+        return this.getSaldo();
     }
 
-  
+    @Override
     public void depositar(double valor) {
         this.setSaldo(this.consultarSaldo() + valor);
     }
 
-
+    @Override
     public void transferir(double valor) {
-       if(this.consultarSaldo()>= valor)
-       {
-           setSaldo(this.consultarSaldo() - valor);
-           setSaldo(getSaldo() + valor);
-       }
-       else
-             System.out.println("Saldo insuficiente para realizar esta operação!");
+        if (this.consultarSaldo() >= valor) {
+            setSaldo(this.consultarSaldo() - valor);
+            setSaldo(getSaldo() + valor);
+        } else {
+            System.out.println("Saldo insuficiente para realizar esta operação!");
+        }
     }
-    
-    
-    
-
-    
-    
-    
-    
-        
-        
 
 }
