@@ -4,37 +4,35 @@ import java.util.ArrayList;
 
 public abstract class Cliente {
 
-	private int id;
+    private int id;
 
-	private String endereco;
-        
-        private String email;
+    private String endereco;
 
-	private String telefone;
-        
-        ArrayList<Conta> contasCliente;
-        // Enum
-        private TipoPessoa tipo;
+    private String email;
+
+    private String telefone;
+
+    ArrayList<Conta> contasCliente;
+    // Enum
+    private TipoPessoa tipo;
 
     public Cliente(int id, String endereco, TipoPessoa tipo, String email, String telefone) {
         this.id = id;
-       this.tipo = tipo;
+        this.tipo = tipo;
         this.endereco = endereco;
         this.email = email;
         this.telefone = telefone;
         this.contasCliente = new ArrayList();
     }
 
-    public void adicionarConta(Conta novaConta)
-    {
+    public void adicionarConta(Conta novaConta) {
         this.contasCliente.add(novaConta);
     }
-    
-    public void listarContas()
-    {
-        
+
+    public void listarContas() {
+
     }
-    
+
     public int getId() {
         return id;
     }
@@ -74,11 +72,5 @@ public abstract class Cliente {
     public void setTipo(TipoPessoa tipo) {
         this.tipo = tipo;
     }
-    
-    
-    
-    
-
-	
 
 }

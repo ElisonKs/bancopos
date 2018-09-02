@@ -15,6 +15,19 @@ public class ContaCorrente extends Conta {
         super(cliente_conta, agencia_conta);
     }
 
-  
-    
+    //Polimorfismo de Sobrecarga
+    public ContaCorrente(Cliente cliente_conta, Agencia agencia_conta, double saldo) {
+        super(cliente_conta, agencia_conta);
+        super.setSaldo(saldo);
+    }
+
+    @Override
+    public void sacar(double valor) throws SaldoInsuficienteException {
+        try {
+            super.sacar(valor);
+        } catch (SaldoInsuficienteException e) {
+
+        }
+    }
+
 }
