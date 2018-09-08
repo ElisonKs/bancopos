@@ -1,37 +1,18 @@
-    
 package bancopos;
 import java.lang.Math;
 
-public class RendaVariavel {
-    
-    private double rendimento;
-    private double saldo;
+public class RendaVariavel extends Investimento {
     
     public RendaVariavel(double valorInvestido)
     {
-        this.rendimento = Math.random();
-        this.saldo = valorInvestido;
+        setRendimento(Math.random()); 
+        setSaldo(valorInvestido);
     }
     
+    @Override
     public void render(){
-        this.saldo += (this.saldo * this.rendimento);
+        //saldo += (saldo * rendimento);
+        setSaldo(getSaldo()+(getSaldo()*getRendimento()));
+       
     }
-
-    public double getRendimento() {
-        return rendimento;
-    }
-
-    public void setRendimento(double rendimento) {
-        this.rendimento = rendimento;
-    }
-
-    public double getSaldo() {
-        return saldo;
-    }
-
-    public void setSaldo(double saldo) {
-        this.saldo = saldo;
-    }
-    
-    
 }

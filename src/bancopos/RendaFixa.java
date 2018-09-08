@@ -1,27 +1,19 @@
 package bancopos;
 
 
-public class RendaFixa {
+public class RendaFixa extends Investimento {
     
-    private final double rendimento = 0.008;
-    
-    private double saldo;
+    private final double rendFixo = 0.008;
     
     public RendaFixa(double valorInvestido){
-        this.saldo = valorInvestido;
+        setRendimento(rendFixo); 
+        setSaldo(valorInvestido);
     }
     
+    @Override
     public void render(){
-        this.saldo += (this.saldo * this.rendimento);
+        //this.saldo += (this.saldo * this.rendimento);
+        setSaldo(getSaldo()+(getSaldo()*getRendimento()));
     }
-
-    public double getSaldo() {
-        return saldo;
-    }
-
-    public void setSaldo(double saldo) {
-        this.saldo = saldo;
-    }
-    
     
 }
