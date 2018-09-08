@@ -2,11 +2,11 @@ package bancopos;
 
 public class Agencia {
 
-	private int codigo;
+    private int codigo;
 
-	private String endereco;
+    private String endereco;
 
-	private String telefone;
+    private String telefone;
 
     public Agencia(int codigo, String endereco, String telefone) {
         this.codigo = codigo;
@@ -38,5 +38,4 @@ public class Agencia {
         this.telefone = telefone;
     }
 
-        
 }
