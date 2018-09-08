@@ -7,6 +7,7 @@ package bancopos;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -58,8 +59,16 @@ public class BancoPos {
                    aux = leitor.nextInt();
                    if(aux == 1)
                    {
+                       System.out.println("Passo1");
+                       String aux_cpf,aux_nome,aux_endereco,aux_email,aux_telefone;
                        Cliente_PessoaFisica pf1;
-                       pf1 = new Cliente_PessoaFisica("02860189","Elison Nunes",1,"Rua do IMperador 76","elison.nunes@gmail.com","87988540970");
+                       System.out.println("Passo2");
+                       EntradaDados novo_dados = new EntradaDados();
+                       System.out.println("Passo3");
+                      // novo_dados.abrirEntrada("CPF");
+                       System.out.println("Passo4");
+                       aux_cpf = JOptionPane.showInputDialog("Entre com o CPF");
+                       pf1 = new Cliente_PessoaFisica(aux_cpf,"Elison Nunes",1,"Rua do IMperador 76","elison.nunes@gmail.com","87988540970");
                    
                        ListaClientesPF.add(pf1);
                    }
