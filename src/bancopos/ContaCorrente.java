@@ -11,13 +11,13 @@ package bancopos;
  */
 public class ContaCorrente extends Conta {
 
-    public ContaCorrente(Cliente cliente_conta, Agencia agencia_conta) {
-        super(cliente_conta, agencia_conta);
+    public ContaCorrente(int numero, Agencia agencia_conta) {
+        super(agencia_conta,numero);
     }
 
     //Polimorfismo de Sobrecarga
-    public ContaCorrente(Cliente cliente_conta, Agencia agencia_conta, double saldo) {
-        super(cliente_conta, agencia_conta);
+    public ContaCorrente(int numero, Agencia agencia_conta, double saldo) {
+        super(agencia_conta,numero);
         super.setSaldo(saldo);
     }
 

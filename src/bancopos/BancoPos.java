@@ -5,8 +5,12 @@
  */
 package bancopos;
 
+import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -27,25 +31,14 @@ public class BancoPos {
         System.out.println("6 - Investir");
         System.out.println("7 - Encerrar");
     }
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
         
        int opcao = 0;
        ArrayList<Cliente_PessoaFisica> ListaClientesPF = new ArrayList();
        ArrayList<Cliente_PessoaJuridica> ListaClientesPJ = new ArrayList();
-       
-       
+       Scanner leitor = new Scanner(System.in); 
        
       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       Scanner leitor = new Scanner(System.in);
        while(opcao != 7)
        {
            menu();
@@ -59,18 +52,31 @@ public class BancoPos {
                    aux = leitor.nextInt();
                    if(aux == 1)
                    {
-                       System.out.println("Passo1");
-                       String aux_cpf,aux_nome,aux_endereco,aux_email,aux_telefone;
-                       Cliente_PessoaFisica pf1;
-                       System.out.println("Passo2");
-                       EntradaDados novo_dados = new EntradaDados();
-                       System.out.println("Passo3");
-                      // novo_dados.abrirEntrada("CPF");
-                       System.out.println("Passo4");
-                       aux_cpf = JOptionPane.showInputDialog("Entre com o CPF");
-                       pf1 = new Cliente_PessoaFisica(aux_cpf,"Elison Nunes",1,"Rua do IMperador 76","elison.nunes@gmail.com","87988540970");
-                   
+                       Cliente_PessoaFisica pf1,pf2;
+                       pf1 = new Cliente_PessoaFisica("02860189505","Elison Nunes",1,"Rua do IMperador 76","elison.nunes@gmail.com","87988540970");
+                       Agencia agencia_aux = new Agencia(969,"Rua das Flores 25","8738664567");
+                       ContaCorrente contacorrenteAux = new ContaCorrente(1,agencia_aux,3500);
+                       ContaPoupanca contaPoupancaAux = new ContaPoupanca(2,agencia_aux);
+                       pf1.contasCliente.add(contacorrenteAux);
+                       pf1.contasCliente.add(contaPoupancaAux);
                        ListaClientesPF.add(pf1);
+                       
+                       pf2 = new Cliente_PessoaFisica("9505","Vinicius Barbosa",2,"Rua do Coqueiro 25","alenvi@gmail.com","8798854555");
+                       agencia_aux = new Agencia(969,"Rua das Flores 25","8738664567");
+                        contacorrenteAux = new ContaCorrente(3,agencia_aux,4000);
+                        pf2.contasCliente.add(contacorrenteAux);
+                    
+                       ListaClientesPF.add(pf2);
+                   }
+                   break;
+               case 7:
+                   LerEscreverArquivo salvar = new LerEscreverArquivo();
+                   {
+                     try {
+                         salvar.gravarSaldosPF(ListaClientesPF);
+                          } catch (IOException ex) {
+                      Logger.getLogger(BancoPos.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                    }
                    break;
                            

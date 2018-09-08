@@ -13,8 +13,8 @@ public class ContaPoupanca extends Conta {
 
     private final double taxaTransferencia = 1.50;
 
-    public ContaPoupanca(Cliente cliente_conta, Agencia agencia_conta) {
-        super(cliente_conta, agencia_conta);
+    public ContaPoupanca(int numero, Agencia agencia_conta) {
+        super(agencia_conta,numero);
     }
 
     @Override
