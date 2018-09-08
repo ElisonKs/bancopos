@@ -2,7 +2,7 @@ package bancopos;
 
 import java.util.ArrayList;
 
-public abstract class Cliente {
+public abstract class Cliente implements ClienteInterface{
 
     private int id;
 
@@ -25,10 +25,12 @@ public abstract class Cliente {
         this.contasCliente = new ArrayList();
     }
 
+    @Override
     public void adicionarConta(Conta novaConta) {
         this.contasCliente.add(novaConta);
     }
 
+    @Override
     public void listarContas() {
 
     }
