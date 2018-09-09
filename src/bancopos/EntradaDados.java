@@ -18,7 +18,7 @@ public class EntradaDados implements EntradaDadosInterface {
     @Override
     public void abrirEntrada(String campo_requerido)
     {
-        this.entrada = JOptionPane.showInputDialog("Entre com " + campo_requerido);
+        this.entrada = JOptionPane.showInputDialog(null,"Entre com " + campo_requerido);
         
     }
 
