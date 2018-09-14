@@ -15,7 +15,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
-import telas.SacarForm;
+import telas.MenuForm;
+import telas.SaqueForm;
 
 /**
  *
@@ -26,10 +27,18 @@ public class BancoPos {
     static ArrayList<Cliente_PessoaFisica> ListaClientesPF = new ArrayList();
     static ArrayList<Cliente_PessoaJuridica> ListaClientesPJ = new ArrayList();
     static ArrayList<Transacao> ListaTransacoes = new ArrayList();
+    static MenuForm menu = new MenuForm();
 
-    public static int menu() {
-        String aux;
-        aux = JOptionPane.showInputDialog(null, "Selecione a opção desejada:\n"
+    public static int menu() throws InterruptedException {
+        int opcao;
+        menu.setVisible(true);
+        
+        while(menu.getOpcao() == 0)
+              Thread.sleep(500);
+        opcao = menu.getOpcao();
+        menu.setOpcao(0);
+        return opcao;
+        /*aux = JOptionPane.showInputDialog(null, "Selecione a opção desejada:\n"
                 + "1 - Imprimir Extrato\n"
                 + "2 - Verificar Saldo\n"
                 + "3 - Sacar\n"
@@ -38,10 +47,11 @@ public class BancoPos {
                 + "6 - Investir\n"
                 + "7 - Encerrar", "Menu", 3);
 
-        return Integer.parseInt(aux);
+        return Integer.parseInt(aux);*/
+        
     }
 
-    public static void main(String[] args) throws ParseException {
+    public static void main(String[] args) throws ParseException, InterruptedException {
 
         int opcao = 0;
 
@@ -50,7 +60,6 @@ public class BancoPos {
         
         while (opcao != 7) {
             opcao = menu();
-
             switch (opcao) {
                 case 1:
                     //int aux;
@@ -66,12 +75,12 @@ public class BancoPos {
                     
                     
                     
-                    SacarForm novo_saque = new SacarForm();
-                
-                   final JDialog frame = new JDialog(null, "Sacar", true);
-                   frame.getContentPane().add(novo_saque);
-                   frame.pack();
-                   frame.setVisible(true);
+                    SaqueForm novo_saque = new SaqueForm();
+                    final JDialog frame = new JDialog(menu, "Sacar", true);
+                    frame.getContentPane().add(novo_saque);
+                    frame.pack();
+                    frame.setVisible(true);
+                  
                 /*Date data1 = new Date(2018, 8, 9);
                     imprimirExtrato(data1);
                     Date data2 = new Date(2018, 9, 9);
