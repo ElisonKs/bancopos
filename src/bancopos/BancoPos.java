@@ -13,7 +13,9 @@ import java.util.Date;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JDialog;
 import javax.swing.JOptionPane;
+import telas.SacarForm;
 
 /**
  *
@@ -59,7 +61,17 @@ public class BancoPos {
                     Date data2 = new Date(2018, 9, 9);
                     imprimirExtrato(data1, data2);
                     break;
-                case 2:
+                case 3:
+                    
+                    
+                    
+                    
+                    SacarForm novo_saque = new SacarForm();
+                
+                   final JDialog frame = new JDialog(null, "Sacar", true);
+                   frame.getContentPane().add(novo_saque);
+                   frame.pack();
+                   frame.setVisible(true);
                 /*Date data1 = new Date(2018, 8, 9);
                     imprimirExtrato(data1);
                     Date data2 = new Date(2018, 9, 9);
