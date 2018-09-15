@@ -16,6 +16,7 @@ import java.util.logging.Logger;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import telas.MenuForm;
+import telas.SacarForm;
 import telas.SaqueForm;
 
 /**
@@ -62,9 +63,7 @@ public class BancoPos {
             opcao = menu();
             switch (opcao) {
                 case 1:
-                    //int aux;
-                    //System.out.println("Informe 1 para Pessoa Fisica e 2 para Pessoa Juridica:");
-                    //aux = leitor.nextInt();
+                   
                     Date data1 = new Date(2018, 8, 9);
                     imprimirExtrato(data1);
                     Date data2 = new Date(2018, 9, 9);
@@ -75,17 +74,27 @@ public class BancoPos {
                     
                     
                     
-                    SaqueForm novo_saque = new SaqueForm();
-                    final JDialog frame = new JDialog(menu, "Sacar", true);
-                    frame.getContentPane().add(novo_saque);
-                    frame.pack();
-                    frame.setVisible(true);
-                  
-                /*Date data1 = new Date(2018, 8, 9);
-                    imprimirExtrato(data1);
-                    Date data2 = new Date(2018, 9, 9);
-                    imprimirExtrato(data1, data2);
-                    break;*/
+                    SacarForm novo_saque = new SacarForm();
+                    novo_saque.setVisible(true);
+                     while(novo_saque.getNumeroConta() == 0)
+                     {
+                         System.out.println("Numero =" + novo_saque.getNumeroConta());
+                     }
+                     System.out.println("Saiu da tread");
+                    for(Cliente_PessoaFisica clientePF : ListaClientesPF)
+                    {
+                        for(Conta conta_cliente : clientePF.contasCliente)
+                        {
+                            if(conta_cliente.getNumero() == novo_saque.getNumeroConta())
+                            {
+                                novo_saque.carregarCliente(clientePF.getNome());
+                                System.out.println("Carregou cliente");
+                                novo_saque.carregarSaldo(conta_cliente.consultarSaldo());
+                                System.out.println("Carregou saldo");
+                            }
+                        }
+                    }
+                    break;
                 case 7:
                     LerEscreverArquivo salvar = new LerEscreverArquivo();
                      {
