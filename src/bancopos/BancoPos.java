@@ -52,7 +52,7 @@ public class BancoPos {
         
     }
 
-    public static void main(String[] args) throws ParseException, InterruptedException {
+    public static void main(String[] args) throws ParseException, InterruptedException, SaldoInsuficienteException {
 
         int opcao = 0;
 
@@ -75,12 +75,12 @@ public class BancoPos {
                     
                     
                     SacarForm novo_saque = new SacarForm();
+                    novo_saque.setLocationRelativeTo(menu);
                     novo_saque.setVisible(true);
                      while(novo_saque.getNumeroConta() == 0)
                      {
-                         System.out.println("Numero =" + novo_saque.getNumeroConta());
+                        Thread.sleep(500);
                      }
-                     System.out.println("Saiu da tread");
                     for(Cliente_PessoaFisica clientePF : ListaClientesPF)
                     {
                         for(Conta conta_cliente : clientePF.contasCliente)
@@ -88,12 +88,20 @@ public class BancoPos {
                             if(conta_cliente.getNumero() == novo_saque.getNumeroConta())
                             {
                                 novo_saque.carregarCliente(clientePF.getNome());
-                                System.out.println("Carregou cliente");
                                 novo_saque.carregarSaldo(conta_cliente.consultarSaldo());
-                                System.out.println("Carregou saldo");
+                                novo_saque.focarValor();
+                                while(novo_saque.getValorSaque() == 0)
+                                {
+                                    Thread.sleep(500);
+                                }
+                                conta_cliente.sacar(novo_saque.getValorSaque());
+                                
+                                
                             }
                         }
                     }
+                     
+                     
                     break;
                 case 7:
                     LerEscreverArquivo salvar = new LerEscreverArquivo();

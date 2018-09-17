@@ -1,5 +1,8 @@
 package bancopos;
 
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
 public class Conta implements CreditoInterface, DebitoInterface {
 
     protected final double taxPoupanca = 1.00;
@@ -37,6 +40,7 @@ public class Conta implements CreditoInterface, DebitoInterface {
     public void sacar(double valor) throws SaldoInsuficienteException {
         if (this.consultarSaldo() >= valor) {
             setSaldo(this.consultarSaldo() - valor);
+            JOptionPane.showMessageDialog(null, "Saque realizado com sucesso!");
         } else {
             throw new SaldoInsuficienteException();
         }

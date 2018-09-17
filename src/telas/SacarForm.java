@@ -12,6 +12,7 @@ package telas;
 public class SacarForm extends javax.swing.JDialog {
 
     private int numeroConta;
+    private int valorSaque;
     
     
     /**
@@ -19,7 +20,7 @@ public class SacarForm extends javax.swing.JDialog {
      */
     public SacarForm() {
         super((java.awt.Frame) null, true);
-         setModalityType(java.awt.Dialog.ModalityType.APPLICATION_MODAL);
+         setModalityType(java.awt.Dialog.ModalityType.MODELESS);
         initComponents();
     }
 
@@ -46,6 +47,11 @@ public class SacarForm extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jButton2.setText("Sacar");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
 
         jLabel1.setText("Código da Conta");
 
@@ -133,6 +139,10 @@ public class SacarForm extends javax.swing.JDialog {
         setNumeroConta(Integer.parseInt(jTextField1.getText()));
     }//GEN-LAST:event_jButton1MouseClicked
 
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+         setValorSaque(Integer.parseInt(jTextField4.getText()));
+    }//GEN-LAST:event_jButton2MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -188,9 +198,14 @@ public class SacarForm extends javax.swing.JDialog {
     private javax.swing.JTextField jTextField4;
     // End of variables declaration//GEN-END:variables
 
+    public void focarValor()
+    {
+        jTextField4.grabFocus();
+    }
     public int getNumeroConta() {
         return numeroConta;
     }
+   
 
     public void setNumeroConta(int numeroConta) {
         this.numeroConta = numeroConta;
@@ -205,5 +220,13 @@ public class SacarForm extends javax.swing.JDialog {
     public void carregarSaldo(Double saldo)
     {
         jTextField3.setText(Double.toString(saldo));
+    }
+
+    public int getValorSaque() {
+        return valorSaque;
+    }
+
+    public void setValorSaque(int valorSaque) {
+        this.valorSaque = valorSaque;
     }
 }
