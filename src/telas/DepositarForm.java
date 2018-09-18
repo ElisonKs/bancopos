@@ -9,18 +9,24 @@ package telas;
  *
  * @author Elison
  */
-public class SacarForm extends javax.swing.JDialog {
+public class DepositarForm extends javax.swing.JDialog {
 
     private int numeroConta;
-    private double valorSaque;
-    
-    
+    private int valorDeposito;
     /**
-     * Creates new form SacarForm
+     * Creates new form DepositarForm
      */
-    public SacarForm() {
+    
+      public DepositarForm() {
         super((java.awt.Frame) null, true);
          setModalityType(java.awt.Dialog.ModalityType.MODELESS);
+        initComponents();
+    }
+    
+    
+    
+    public DepositarForm(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
         initComponents();
     }
 
@@ -33,7 +39,6 @@ public class SacarForm extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton2 = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
@@ -43,15 +48,9 @@ public class SacarForm extends javax.swing.JDialog {
         jTextField3 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jTextField4 = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
-        jButton2.setText("Sacar");
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
-            }
-        });
 
         jLabel1.setText("Código da Conta");
 
@@ -70,7 +69,14 @@ public class SacarForm extends javax.swing.JDialog {
 
         jTextField3.setEditable(false);
 
-        jLabel4.setText("Valor do Saque");
+        jLabel4.setText("Valor do Depósito");
+
+        jButton2.setText("Sacar");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -129,7 +135,7 @@ public class SacarForm extends javax.swing.JDialog {
                     .addComponent(jLabel4)
                     .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2))
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         pack();
@@ -140,7 +146,7 @@ public class SacarForm extends javax.swing.JDialog {
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-         setValorSaque(Double.parseDouble(jTextField4.getText()));
+        setValorDeposito(Integer.parseInt(jTextField4.getText()));
     }//GEN-LAST:event_jButton2MouseClicked
 
     /**
@@ -160,20 +166,20 @@ public class SacarForm extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SacarForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DepositarForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SacarForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DepositarForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SacarForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DepositarForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SacarForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DepositarForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                SacarForm dialog = new SacarForm();
+                DepositarForm dialog = new DepositarForm(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -198,21 +204,23 @@ public class SacarForm extends javax.swing.JDialog {
     private javax.swing.JTextField jTextField4;
     // End of variables declaration//GEN-END:variables
 
-    public void focarValor()
-    {
-        jTextField4.grabFocus();
-    }
     public int getNumeroConta() {
         return numeroConta;
     }
-   
 
     public void setNumeroConta(int numeroConta) {
         this.numeroConta = numeroConta;
     }
+
+    public int getValorDeposito() {
+        return valorDeposito;
+    }
+
+    public void setValorDeposito(int valorDeposito) {
+        this.valorDeposito = valorDeposito;
+    }
     
-    
-     public void carregarCliente(String cliente)
+      public void carregarCliente(String cliente)
     {
         jTextField2.setText(cliente);
     }
@@ -221,12 +229,9 @@ public class SacarForm extends javax.swing.JDialog {
     {
         jTextField3.setText(Double.toString(saldo));
     }
-
-    public double getValorSaque() {
-        return valorSaque;
-    }
-
-    public void setValorSaque(double valorSaque) {
-        this.valorSaque = valorSaque;
+    
+      public void focarValor()
+    {
+        jTextField4.grabFocus();
     }
 }

@@ -53,6 +53,7 @@ public class Conta implements CreditoInterface, DebitoInterface {
     @Override
     public void depositar(double valor) {
         this.setSaldo(this.consultarSaldo() + valor);
+           JOptionPane.showMessageDialog(null, "Depósito realizado com sucesso!");
     }
 
     @Override
