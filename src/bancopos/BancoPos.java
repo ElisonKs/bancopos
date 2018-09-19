@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package bancopos;
 
 import java.io.IOException;
@@ -21,15 +17,12 @@ import telas.SacarForm;
 import telas.SaldoForm;
 import telas.TransferirForm;
 
-/**
- *
- * @author Elison
- */
+
 public class BancoPos {
 
-    static ArrayList<Cliente_PessoaFisica> ListaClientesPF = new ArrayList();
-    static ArrayList<Cliente_PessoaJuridica> ListaClientesPJ = new ArrayList();
-    static ArrayList<Transacao> ListaTransacoes = new ArrayList();
+    static ArrayList<ClientePessoaFisica> listaClientesPF = new ArrayList();
+    static ArrayList<ClientePessoaJuridica> listaClientesPJ = new ArrayList();
+    static ArrayList<Transacao> listaTransacoes = new ArrayList();
     static MenuForm menu = new MenuForm();
 
     public static int menu() throws InterruptedException {
@@ -63,21 +56,21 @@ public class BancoPos {
                     imprimirExtrato(data1,data2,data3);
                     break;
                 case 2:
-                    SaldoForm consultar_saldo = new SaldoForm();
-                    consultar_saldo.setLocationRelativeTo(menu);
-                    consultar_saldo.setVisible(true);
-                    while(consultar_saldo.getNumeroConta()==0)
+                    SaldoForm consultarSaldo = new SaldoForm();
+                    consultarSaldo.setLocationRelativeTo(menu);
+                    consultarSaldo.setVisible(true);
+                    while(consultarSaldo.getNumeroConta()==0)
                     {
                         Thread.sleep(500);
                     }
-                    for(Cliente_PessoaFisica clientePF : ListaClientesPF)
+                    for(ClientePessoaFisica clientePF : listaClientesPF)
                     {
-                        for(Conta conta_cliente : clientePF.contasCliente)
+                        for(Conta contaCliente : clientePF.contasCliente)
                         {
-                            if(conta_cliente.getNumero() == consultar_saldo.getNumeroConta())
+                            if(contaCliente.getNumero() == consultarSaldo.getNumeroConta())
                             {
-                                consultar_saldo.carregarCliente(clientePF.getNome());
-                                consultar_saldo.carregarSaldo(conta_cliente.consultarSaldo());
+                                consultarSaldo.carregarCliente(clientePF.getNome());
+                                consultarSaldo.carregarSaldo(contaCliente.consultarSaldo());
                                            
                                 
                             }
@@ -89,30 +82,30 @@ public class BancoPos {
                   break;
                 
                 case 3:
-                    SacarForm novo_saque = new SacarForm();
-                    novo_saque.setLocationRelativeTo(menu);
-                    novo_saque.setVisible(true);
-                     while(novo_saque.getNumeroConta() == 0)
+                    SacarForm novoSaque = new SacarForm();
+                    novoSaque.setLocationRelativeTo(menu);
+                    novoSaque.setVisible(true);
+                     while(novoSaque.getNumeroConta() == 0)
                      {
                         Thread.sleep(500);
                      }
-                    for(Cliente_PessoaFisica clientePF : ListaClientesPF)
+                    for(ClientePessoaFisica clientePF : listaClientesPF)
                     {
-                        for(Conta conta_cliente : clientePF.contasCliente)
+                        for(Conta contaCliente : clientePF.contasCliente)
                         {
-                            if(conta_cliente.getNumero() == novo_saque.getNumeroConta())
+                            if(contaCliente.getNumero() == novoSaque.getNumeroConta())
                             {
-                                novo_saque.carregarCliente(clientePF.getNome());
-                                novo_saque.carregarSaldo(conta_cliente.consultarSaldo());
-                                novo_saque.focarValor();
-                                while(novo_saque.getValorSaque() == 0)
+                                novoSaque.carregarCliente(clientePF.getNome());
+                                novoSaque.carregarSaldo(contaCliente.consultarSaldo());
+                                novoSaque.focarValor();
+                                while(novoSaque.getValorSaque() == 0)
                                 {
                                     Thread.sleep(500);
                                 } 
-                                conta_cliente.sacar(novo_saque.getValorSaque());
-                                Date data_saque = new Date(2018,9,17);
-                                Transacao nova_Trasancao = new Transacao(novo_saque.getNumeroConta(),novo_saque.getValorSaque(),TipoTransacao.SAQUE,data_saque);
-                                ListaTransacoes.add(nova_Trasancao);
+                                contaCliente.sacar(novoSaque.getValorSaque());
+                                Date dataSaque = new Date(2018,9,17);
+                                Transacao nova_Trasancao = new Transacao(novoSaque.getNumeroConta(),novoSaque.getValorSaque(),TipoTransacao.SAQUE,dataSaque);
+                                listaTransacoes.add(nova_Trasancao);
                                 
                                 
                             }
@@ -122,90 +115,90 @@ public class BancoPos {
                      
                     break;
                 case 4:
-                    TransferirForm nova_transferencia = new TransferirForm();
-                    nova_transferencia.setLocationRelativeTo(menu);
-                    nova_transferencia.setVisible(true);
-                    while((nova_transferencia.getNumeroContaDestino() == 0) ||( nova_transferencia.getNumeroContaOrigem()==0))
+                    TransferirForm novaTransferencia = new TransferirForm();
+                    novaTransferencia.setLocationRelativeTo(menu);
+                    novaTransferencia.setVisible(true);
+                    while((novaTransferencia.getNumeroContaDestino() == 0) ||( novaTransferencia.getNumeroContaOrigem()==0))
                     {
                         Thread.sleep(500);
                         
                     }
-                    for(Cliente_PessoaFisica clientePF : ListaClientesPF)
+                    for(ClientePessoaFisica clientePF : listaClientesPF)
                     {
-                        for(Conta conta_cliente : clientePF.contasCliente)
+                        for(Conta contaCliente : clientePF.contasCliente)
                         {
-                            if(conta_cliente.getNumero() == nova_transferencia.getNumeroContaOrigem())
+                            if(contaCliente.getNumero() == novaTransferencia.getNumeroContaOrigem())
                             {
-                                nova_transferencia.carregarClienteOrigem(clientePF.getNome());
-                                nova_transferencia.carregarSaldo(conta_cliente.consultarSaldo());
+                                novaTransferencia.carregarClienteOrigem(clientePF.getNome());
+                                novaTransferencia.carregarSaldo(contaCliente.consultarSaldo());
                             }
                             
-                             if(conta_cliente.getNumero() == nova_transferencia.getNumeroContaDestino())
+                             if(contaCliente.getNumero() == novaTransferencia.getNumeroContaDestino())
                             {
-                                nova_transferencia.carregarClienteDestino(clientePF.getNome());
+                                novaTransferencia.carregarClienteDestino(clientePF.getNome());
                             }
                         }
                     }
                     
-                    while(nova_transferencia.getValorTransferir()==0)
+                    while(novaTransferencia.getValorTransferir()==0)
                     {
                         Thread.sleep(500);
                     }
-                     for(Cliente_PessoaFisica clientePF : ListaClientesPF)
+                     for(ClientePessoaFisica clientePF : listaClientesPF)
                     {
-                        for(Conta conta_cliente : clientePF.contasCliente)
+                        for(Conta contaCliente : clientePF.contasCliente)
                         {
-                            if(conta_cliente.getNumero() == nova_transferencia.getNumeroContaOrigem())
+                            if(contaCliente.getNumero() == novaTransferencia.getNumeroContaOrigem())
                             {
-                                conta_cliente.sacar(nova_transferencia.getValorTransferir());
+                                contaCliente.sacar(novaTransferencia.getValorTransferir());
                             }
                             
-                             if(conta_cliente.getNumero() == nova_transferencia.getNumeroContaDestino())
+                             if(contaCliente.getNumero() == novaTransferencia.getNumeroContaDestino())
                             {
-                                conta_cliente.depositar(nova_transferencia.getValorTransferir());
+                                contaCliente.depositar(novaTransferencia.getValorTransferir());
                             }
                         }
                     }
-                    Date data_transferencia = new Date(2018,9,17);
-                    Transacao nova_Trasancao = new Transacao(nova_transferencia.getNumeroContaOrigem(),nova_transferencia.getNumeroContaDestino(),nova_transferencia.getValorTransferir(),TipoTransacao.TRANSFERENCIA,data_transferencia);
-                    ListaTransacoes.add(nova_Trasancao);
+                    Date dataTransferencia = new Date(2018,9,17);
+                    Transacao novaTransacao = new Transacao(novaTransferencia.getNumeroContaOrigem(),novaTransferencia.getNumeroContaDestino(),novaTransferencia.getValorTransferir(),TipoTransacao.TRANSFERENCIA,dataTransferencia);
+                    listaTransacoes.add(novaTransacao);
                     break;
                     
                 case 5:    
-                  DepositarForm novo_deposito = new DepositarForm();
-                    novo_deposito.setLocationRelativeTo(menu);
-                    novo_deposito.setVisible(true);
-                     while(novo_deposito.getNumeroConta() == 0)
+                  DepositarForm novoDeposito = new DepositarForm();
+                    novoDeposito.setLocationRelativeTo(menu);
+                    novoDeposito.setVisible(true);
+                     while(novoDeposito.getNumeroConta() == 0)
                      {
                         Thread.sleep(500);
                      }
-                    for(Cliente_PessoaFisica clientePF : ListaClientesPF)
+                    for(ClientePessoaFisica clientePF : listaClientesPF)
                     {
-                        for(Conta conta_cliente : clientePF.contasCliente)
+                        for(Conta contaCliente : clientePF.contasCliente)
                         {
-                            if(conta_cliente.getNumero() == novo_deposito.getNumeroConta())
+                            if(contaCliente.getNumero() == novoDeposito.getNumeroConta())
                             {
-                                novo_deposito.carregarCliente(clientePF.getNome());
-                                novo_deposito.carregarSaldo(conta_cliente.consultarSaldo());
-                                novo_deposito.focarValor();
-                                while(novo_deposito.getValorDeposito() == 0)
+                                novoDeposito.carregarCliente(clientePF.getNome());
+                                novoDeposito.carregarSaldo(contaCliente.consultarSaldo());
+                                novoDeposito.focarValor();
+                                while(novoDeposito.getValorDeposito() == 0)
                                 {
                                     Thread.sleep(500);
                                 } 
-                                conta_cliente.depositar(novo_deposito.getValorDeposito());
-                                Date data_deposito = new Date(2018,9,17);
-                                nova_Trasancao = new Transacao(novo_deposito.getNumeroConta(),novo_deposito.getValorDeposito(),TipoTransacao.DEPOSITO,data_deposito);
-                                ListaTransacoes.add(nova_Trasancao);
+                                contaCliente.depositar(novoDeposito.getValorDeposito());
+                                Date dataDeposito = new Date(2018,9,17);
+                                novaTransacao = new Transacao(novoDeposito.getNumeroConta(),novoDeposito.getValorDeposito(),TipoTransacao.DEPOSITO,dataDeposito);
+                                listaTransacoes.add(novaTransacao);
                                 
                                 
                             }
                         }
-                    }    
+                    }        
                 case 7:
                     LerEscreverArquivo salvar = new LerEscreverArquivo();
                      {
                         try {
-                            salvar.gravarSaldosPF(ListaClientesPF);
+                            salvar.gravarSaldosPF(listaClientesPF);
                         } catch (IOException ex) {
                             Logger.getLogger(BancoPos.class.getName()).log(Level.SEVERE, null, ex);
                         }
@@ -220,7 +213,7 @@ public class BancoPos {
     public static void imprimirExtrato(Date... datas) {
         System.out.println("-------------------");
         for (Date data : datas) {
-            for (Transacao transacao : ListaTransacoes) {
+            for (Transacao transacao : listaTransacoes) {
                 if ((transacao.getDataTransacao().compareTo(data) == 0)) {
                     transacao.imprimir();
                 }
@@ -231,26 +224,26 @@ public class BancoPos {
 
     public static void carregarDados() {
         Cliente pf1, pf2;
-        pf1 = new Cliente_PessoaFisica("02860189505", "Elison Nunes", 1, "Rua do IMperador 76", "elison.nunes@gmail.com", "87988540970");
-        Agencia agencia_aux = new Agencia(969, "Rua das Flores 25", "8738664567");
-        ContaCorrente contacorrenteAux = new ContaCorrente(1, agencia_aux, 3500);
-        ContaPoupanca contaPoupancaAux = new ContaPoupanca(2, agencia_aux);
-        pf1.contasCliente.add(contacorrenteAux);
+        pf1 = new ClientePessoaFisica("02860189505", "Elison Nunes", 1, "Rua do IMperador 76", "elison.nunes@gmail.com", "87988540970");
+        Agencia agenciaAux = new Agencia(969, "Rua das Flores 25", "8738664567");
+        ContaCorrente contaCorrenteAux = new ContaCorrente(1, agenciaAux, 3500);
+        ContaPoupanca contaPoupancaAux = new ContaPoupanca(2, agenciaAux);
+        pf1.contasCliente.add(contaCorrenteAux);
         pf1.contasCliente.add(contaPoupancaAux);
-        ListaClientesPF.add((Cliente_PessoaFisica) pf1);
+        listaClientesPF.add((ClientePessoaFisica) pf1);
 
-        pf2 = new Cliente_PessoaFisica("9505", "Vinicius Barbosa", 2, "Rua do Coqueiro 25", "alenvi@gmail.com", "8798854555");
-        agencia_aux = new Agencia(969, "Rua das Flores 25", "8738664567");
-        contacorrenteAux = new ContaCorrente(3, agencia_aux, 4000);
-        pf2.contasCliente.add(contacorrenteAux);
+        pf2 = new ClientePessoaFisica("9505", "Vinicius Barbosa", 2, "Rua do Coqueiro 25", "alenvi@gmail.com", "8798854555");
+        agenciaAux = new Agencia(969, "Rua das Flores 25", "8738664567");
+        contaCorrenteAux = new ContaCorrente(3, agenciaAux, 4000);
+        pf2.contasCliente.add(contaCorrenteAux);
 
-        ListaClientesPF.add((Cliente_PessoaFisica) pf2);
-        Date data_aux = new Date(2018, 9, 9);
-        Transacao transacao_aux1 = new Transacao(1, 2, 200, TipoTransacao.TRANSFERENCIA, data_aux);
-        ListaTransacoes.add(transacao_aux1);
-        data_aux = new Date(2018, 8, 9);
-        Transacao transacao_aux2 = new Transacao(1, 200, TipoTransacao.SAQUE, data_aux);
-        ListaTransacoes.add(transacao_aux2);
+        listaClientesPF.add((ClientePessoaFisica) pf2);
+        Date dataAux = new Date(2018, 9, 9);
+        Transacao transacaoAux1 = new Transacao(1, 2, 200, TipoTransacao.TRANSFERENCIA, dataAux);
+        listaTransacoes.add(transacaoAux1);
+        dataAux = new Date(2018, 8, 9);
+        Transacao transacaoAux2 = new Transacao(1, 200, TipoTransacao.SAQUE, dataAux);
+        listaTransacoes.add(transacaoAux2);
     }
 
 }

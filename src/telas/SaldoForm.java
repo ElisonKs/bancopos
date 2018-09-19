@@ -1,29 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package telas;
 
-/**
- *
- * @author Elison
- */
 public class SaldoForm extends javax.swing.JDialog {
 
     private int numeroConta;
+
     /**
      * Creates new form SaldoForm
      */
-    
-      public SaldoForm() {
+
+    public SaldoForm() {
         super((java.awt.Frame) null, true);
-         setModalityType(java.awt.Dialog.ModalityType.MODELESS);
+        setModalityType(java.awt.Dialog.ModalityType.MODELESS);
         initComponents();
     }
-    
-    
-    
+
     public SaldoForm(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -176,14 +166,12 @@ public class SaldoForm extends javax.swing.JDialog {
     public void setNumeroConta(int numeroConta) {
         this.numeroConta = numeroConta;
     }
-    
-     public void carregarCliente(String cliente)
-    {
+
+    public void carregarCliente(String cliente) {
         jTextField2.setText(cliente);
     }
-    
-    public void carregarSaldo(Double saldo)
-    {
+
+    public void carregarSaldo(Double saldo) {
         jTextField3.setText(Double.toString(saldo));
     }
 }

@@ -1,20 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package telas;
 
-/**
- *
- * @author Elison
- */
 public class MenuForm extends javax.swing.JFrame {
 
     private int opcao = 0;
-    
-    
-    
+
     public MenuForm() {
         initComponents();
     }
@@ -28,62 +17,62 @@ public class MenuForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        extratoButton = new javax.swing.JButton();
+        transferirButton = new javax.swing.JButton();
+        depositarButton = new javax.swing.JButton();
+        investirButton = new javax.swing.JButton();
+        sacarButton = new javax.swing.JButton();
+        encerrarButton = new javax.swing.JButton();
+        saldoButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Imprimir Extrato");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        extratoButton.setText("Imprimir Extrato");
+        extratoButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                extratoButtonMouseClicked(evt);
             }
         });
 
-        jButton2.setText("Transferir");
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+        transferirButton.setText("Transferir");
+        transferirButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
+                transferirButtonMouseClicked(evt);
             }
         });
 
-        jButton3.setText("Depositar");
-        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+        depositarButton.setText("Depositar");
+        depositarButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton3MouseClicked(evt);
+                depositarButtonMouseClicked(evt);
             }
         });
 
-        jButton4.setText("Investir");
-        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+        investirButton.setText("Investir");
+        investirButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton4MouseClicked(evt);
+                investirButtonMouseClicked(evt);
             }
         });
 
-        jButton5.setText("Sacar");
-        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+        sacarButton.setText("Sacar");
+        sacarButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton5MouseClicked(evt);
+                sacarButtonMouseClicked(evt);
             }
         });
 
-        jButton6.setText("Encerrar");
-        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+        encerrarButton.setText("Encerrar");
+        encerrarButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton6MouseClicked(evt);
+                encerrarButtonMouseClicked(evt);
             }
         });
 
-        jButton7.setText("Consultar Saldo");
-        jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
+        saldoButton.setText("Consultar Saldo");
+        saldoButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton7MouseClicked(evt);
+                saldoButtonMouseClicked(evt);
             }
         });
 
@@ -94,32 +83,32 @@ public class MenuForm extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(93, 93, 93)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4)
-                    .addComponent(jButton5)
-                    .addComponent(jButton6)
-                    .addComponent(jButton7))
+                    .addComponent(extratoButton)
+                    .addComponent(transferirButton)
+                    .addComponent(depositarButton)
+                    .addComponent(investirButton)
+                    .addComponent(sacarButton)
+                    .addComponent(encerrarButton)
+                    .addComponent(saldoButton))
                 .addContainerGap(82, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(36, 36, 36)
-                .addComponent(jButton1)
+                .addComponent(extratoButton)
                 .addGap(15, 15, 15)
-                .addComponent(jButton7)
+                .addComponent(saldoButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton5)
+                .addComponent(sacarButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
+                .addComponent(transferirButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3)
+                .addComponent(depositarButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton4)
+                .addComponent(investirButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton6)
+                .addComponent(encerrarButton)
                 .addContainerGap(58, Short.MAX_VALUE))
         );
 
@@ -127,33 +116,33 @@ public class MenuForm extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-              setOpcao(1);
-    }//GEN-LAST:event_jButton1MouseClicked
+    private void extratoButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_extratoButtonMouseClicked
+        setOpcao(1);
+    }//GEN-LAST:event_extratoButtonMouseClicked
 
-    private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
+    private void saldoButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saldoButtonMouseClicked
         setOpcao(2);
-    }//GEN-LAST:event_jButton7MouseClicked
+    }//GEN-LAST:event_saldoButtonMouseClicked
 
-    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+    private void sacarButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sacarButtonMouseClicked
         setOpcao(3);
-    }//GEN-LAST:event_jButton5MouseClicked
+    }//GEN-LAST:event_sacarButtonMouseClicked
 
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-       setOpcao(4);
-    }//GEN-LAST:event_jButton2MouseClicked
+    private void transferirButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_transferirButtonMouseClicked
+        setOpcao(4);
+    }//GEN-LAST:event_transferirButtonMouseClicked
 
-    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+    private void depositarButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_depositarButtonMouseClicked
         setOpcao(5);
-    }//GEN-LAST:event_jButton3MouseClicked
+    }//GEN-LAST:event_depositarButtonMouseClicked
 
-    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
-      setOpcao(6);
-    }//GEN-LAST:event_jButton4MouseClicked
+    private void investirButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_investirButtonMouseClicked
+        setOpcao(6);
+    }//GEN-LAST:event_investirButtonMouseClicked
 
-    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
-      setOpcao(7);
-    }//GEN-LAST:event_jButton6MouseClicked
+    private void encerrarButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_encerrarButtonMouseClicked
+        setOpcao(7);
+    }//GEN-LAST:event_encerrarButtonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -191,13 +180,13 @@ public class MenuForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
+    private javax.swing.JButton depositarButton;
+    private javax.swing.JButton encerrarButton;
+    private javax.swing.JButton extratoButton;
+    private javax.swing.JButton investirButton;
+    private javax.swing.JButton sacarButton;
+    private javax.swing.JButton saldoButton;
+    private javax.swing.JButton transferirButton;
     // End of variables declaration//GEN-END:variables
 
     public int getOpcao() {

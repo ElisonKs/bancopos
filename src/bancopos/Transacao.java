@@ -1,19 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package bancopos;
 
 import java.util.Date;
 
-
-/**
- *
- * @author Elison
- */
 public class Transacao {
-    
+
     private int numeroContaOrigem;
     private int numeroContaDestino;
     private double valorTransacao;
@@ -28,13 +18,13 @@ public class Transacao {
         this.dataTransacao = dataTransacao;
     }
 
-     public Transacao(int numeroContaOrigem,  double valorTransacao, TipoTransacao tipoTransacao, Date dataTransacao) {
+    public Transacao(int numeroContaOrigem, double valorTransacao, TipoTransacao tipoTransacao, Date dataTransacao) {
         this.numeroContaOrigem = numeroContaOrigem;
         this.valorTransacao = valorTransacao;
         this.tipoTransacao = tipoTransacao;
         this.dataTransacao = dataTransacao;
     }
-    
+
     public int getNumeroContaOrigem() {
         return numeroContaOrigem;
     }
@@ -74,15 +64,14 @@ public class Transacao {
     public void setDataTransacao(Date dataTransacao) {
         this.dataTransacao = dataTransacao;
     }
-    
-    public void imprimir()
-    {
+
+    public void imprimir() {
         System.out.println("Data:" + getDataTransacao());
         System.out.println("Conta Origem:" + getNumeroContaOrigem());
         System.out.println("Conta Destino:" + getNumeroContaDestino());
         System.out.println("Tipo:" + getTipoTransacao().toString());
         System.out.println("Valor:" + getValorTransacao());
-                           
+
     }
-    
+
 }

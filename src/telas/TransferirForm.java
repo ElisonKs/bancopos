@@ -1,27 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package telas;
 
-/**
- *
- * @author Elison
- */
 public class TransferirForm extends javax.swing.JDialog {
 
     private int numeroContaOrigem;
     private int numeroContaDestino;
     private double valorTransferir;
-    
-     public TransferirForm() {
+
+    public TransferirForm() {
         super((java.awt.Frame) null, true);
-         setModalityType(java.awt.Dialog.ModalityType.MODELESS);
+        setModalityType(java.awt.Dialog.ModalityType.MODELESS);
         initComponents();
     }
-    
-    
+
     public TransferirForm(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -261,21 +251,16 @@ public class TransferirForm extends javax.swing.JDialog {
     public void setValorTransferir(double valorTransferir) {
         this.valorTransferir = valorTransferir;
     }
-    
-    
-    public void carregarClienteOrigem(String cliente)
-    {
+
+    public void carregarClienteOrigem(String cliente) {
         jTextField2.setText(cliente);
     }
-    
-     
-    public void carregarClienteDestino(String cliente)
-    {
+
+    public void carregarClienteDestino(String cliente) {
         jTextField5.setText(cliente);
     }
-    
-    public void carregarSaldo(Double saldo)
-    {
+
+    public void carregarSaldo(Double saldo) {
         jTextField3.setText(Double.toString(saldo));
     }
 }

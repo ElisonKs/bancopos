@@ -1,30 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package telas;
 
-/**
- *
- * @author Elison
- */
 public class DepositarForm extends javax.swing.JDialog {
 
     private int numeroConta;
     private int valorDeposito;
+
     /**
      * Creates new form DepositarForm
      */
-    
-      public DepositarForm() {
+
+    public DepositarForm() {
         super((java.awt.Frame) null, true);
-         setModalityType(java.awt.Dialog.ModalityType.MODELESS);
+        setModalityType(java.awt.Dialog.ModalityType.MODELESS);
         initComponents();
     }
-    
-    
-    
+
     public DepositarForm(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -39,42 +29,42 @@ public class DepositarForm extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        codigoContaTextField = new javax.swing.JTextField();
+        codigoContaLabel = new javax.swing.JLabel();
+        carregarButton = new javax.swing.JButton();
+        clienteLabel = new javax.swing.JLabel();
+        saldoLabel = new javax.swing.JLabel();
+        clienteTextField = new javax.swing.JTextField();
+        saldoTextField = new javax.swing.JTextField();
+        valorDepositoLabel = new javax.swing.JLabel();
+        valorDepositoTextField = new javax.swing.JTextField();
+        sacarButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setText("Código da Conta");
+        codigoContaLabel.setText("Código da Conta");
 
-        jButton1.setText("Carregar");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        carregarButton.setText("Carregar");
+        carregarButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                carregarButtonMouseClicked(evt);
             }
         });
 
-        jLabel2.setText("Cliente");
+        clienteLabel.setText("Cliente");
 
-        jLabel3.setText("Saldo Disponível");
+        saldoLabel.setText("Saldo Disponível");
 
-        jTextField2.setEditable(false);
+        clienteTextField.setEditable(false);
 
-        jTextField3.setEditable(false);
+        saldoTextField.setEditable(false);
 
-        jLabel4.setText("Valor do Depósito");
+        valorDepositoLabel.setText("Valor do Depósito");
 
-        jButton2.setText("Sacar");
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+        sacarButton.setText("Sacar");
+        sacarButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
+                sacarButtonMouseClicked(evt);
             }
         });
 
@@ -87,67 +77,67 @@ public class DepositarForm extends javax.swing.JDialog {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(62, 62, 62)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
+                            .addComponent(codigoContaLabel)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(codigoContaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton1))))
+                                .addComponent(carregarButton))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(74, 74, 74)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
+                                .addComponent(saldoLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(saldoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
+                                .addComponent(clienteLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(clienteTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(85, 85, 85)
-                .addComponent(jLabel4)
+                .addComponent(valorDepositoLabel)
                 .addGap(18, 18, 18)
-                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(valorDepositoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(sacarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(codigoContaLabel)
                 .addGap(1, 1, 1)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(codigoContaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(carregarButton))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(clienteLabel)
+                    .addComponent(clienteTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(saldoLabel)
+                    .addComponent(saldoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2))
+                    .addComponent(valorDepositoLabel)
+                    .addComponent(valorDepositoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sacarButton))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        setNumeroConta(Integer.parseInt(jTextField1.getText()));
-    }//GEN-LAST:event_jButton1MouseClicked
+    private void carregarButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carregarButtonMouseClicked
+        setNumeroConta(Integer.parseInt(codigoContaTextField.getText()));
+    }//GEN-LAST:event_carregarButtonMouseClicked
 
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        setValorDeposito(Integer.parseInt(jTextField4.getText()));
-    }//GEN-LAST:event_jButton2MouseClicked
+    private void sacarButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sacarButtonMouseClicked
+        setValorDeposito(Integer.parseInt(valorDepositoTextField.getText()));
+    }//GEN-LAST:event_sacarButtonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -192,16 +182,16 @@ public class DepositarForm extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JButton carregarButton;
+    private javax.swing.JLabel clienteLabel;
+    private javax.swing.JTextField clienteTextField;
+    private javax.swing.JLabel codigoContaLabel;
+    private javax.swing.JTextField codigoContaTextField;
+    private javax.swing.JButton sacarButton;
+    private javax.swing.JLabel saldoLabel;
+    private javax.swing.JTextField saldoTextField;
+    private javax.swing.JLabel valorDepositoLabel;
+    private javax.swing.JTextField valorDepositoTextField;
     // End of variables declaration//GEN-END:variables
 
     public int getNumeroConta() {
@@ -219,19 +209,16 @@ public class DepositarForm extends javax.swing.JDialog {
     public void setValorDeposito(int valorDeposito) {
         this.valorDeposito = valorDeposito;
     }
-    
-      public void carregarCliente(String cliente)
-    {
-        jTextField2.setText(cliente);
+
+    public void carregarCliente(String cliente) {
+        clienteTextField.setText(cliente);
     }
-    
-    public void carregarSaldo(Double saldo)
-    {
-        jTextField3.setText(Double.toString(saldo));
+
+    public void carregarSaldo(Double saldo) {
+        saldoTextField.setText(Double.toString(saldo));
     }
-    
-      public void focarValor()
-    {
-        jTextField4.grabFocus();
+
+    public void focarValor() {
+        valorDepositoTextField.grabFocus();
     }
 }

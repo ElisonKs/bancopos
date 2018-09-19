@@ -1,26 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package telas;
 
-/**
- *
- * @author Elison
- */
 public class SacarForm extends javax.swing.JDialog {
 
     private int numeroConta;
     private double valorSaque;
-    
-    
+
     /**
      * Creates new form SacarForm
      */
     public SacarForm() {
         super((java.awt.Frame) null, true);
-         setModalityType(java.awt.Dialog.ModalityType.MODELESS);
+        setModalityType(java.awt.Dialog.ModalityType.MODELESS);
         initComponents();
     }
 
@@ -140,7 +130,7 @@ public class SacarForm extends javax.swing.JDialog {
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-         setValorSaque(Double.parseDouble(jTextField4.getText()));
+        setValorSaque(Double.parseDouble(jTextField4.getText()));
     }//GEN-LAST:event_jButton2MouseClicked
 
     /**
@@ -198,27 +188,23 @@ public class SacarForm extends javax.swing.JDialog {
     private javax.swing.JTextField jTextField4;
     // End of variables declaration//GEN-END:variables
 
-    public void focarValor()
-    {
+    public void focarValor() {
         jTextField4.grabFocus();
     }
+
     public int getNumeroConta() {
         return numeroConta;
     }
-   
 
     public void setNumeroConta(int numeroConta) {
         this.numeroConta = numeroConta;
     }
-    
-    
-     public void carregarCliente(String cliente)
-    {
+
+    public void carregarCliente(String cliente) {
         jTextField2.setText(cliente);
     }
-    
-    public void carregarSaldo(Double saldo)
-    {
+
+    public void carregarSaldo(Double saldo) {
         jTextField3.setText(Double.toString(saldo));
     }
 

@@ -1,15 +1,14 @@
 package bancopos;
 
 public abstract class Investimento {
-    
+
     private double rendimento;
     private double saldo;
-    
-    
-    public void render (){
+
+    public void render() {
         this.saldo += (this.saldo * this.rendimento);
     }
-    
+
     public double getRendimento() {
         return rendimento;
     }
@@ -25,6 +24,5 @@ public abstract class Investimento {
     public void setSaldo(double saldo) {
         this.saldo = saldo;
     }
-    
-    
+
 }

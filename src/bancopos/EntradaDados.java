@@ -1,25 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package bancopos;
 
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Elison
- */
 public class EntradaDados implements EntradaDadosInterface {
-    
+
     private String entrada;
-    
+
     @Override
-    public void abrirEntrada(String campo_requerido)
-    {
-        this.entrada = JOptionPane.showInputDialog(null,"Entre com " + campo_requerido);
-        
+    public void abrirEntrada(String campoRequerido) {
+        this.entrada = JOptionPane.showInputDialog(null, "Entre com " + campoRequerido);
+
     }
 
     public String getEntrada() {
@@ -29,5 +19,5 @@ public class EntradaDados implements EntradaDadosInterface {
     public void setEntrada(String entrada) {
         this.entrada = entrada;
     }
-    
+
 }

@@ -1,14 +1,14 @@
 package bancopos;
 
-public class Cliente_PessoaJuridica extends Cliente {
+public class ClientePessoaJuridica extends Cliente {
 
-	private int cnpj;
+    private int cnpj;
 
-	private String razao_social;
+    private String razao_social;
 
-	private String nome_fantasia;
+    private String nome_fantasia;
 
-    public Cliente_PessoaJuridica(int cnpj, String razao_social, String nome_fantasia, int id, String endereco, TipoPessoa tipo, String email, String telefone) {
+    public ClientePessoaJuridica(int cnpj, String razao_social, String nome_fantasia, int id, String endereco, TipoPessoa tipo, String email, String telefone) {
         super(id, endereco, tipo, email, telefone);
         this.cnpj = cnpj;
         this.razao_social = razao_social;
@@ -39,9 +39,5 @@ public class Cliente_PessoaJuridica extends Cliente {
     public void setNome_fantasia(String nome_fantasia) {
         this.nome_fantasia = nome_fantasia;
     }
-    
-    
-        
-        
 
 }
