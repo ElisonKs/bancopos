@@ -5,27 +5,25 @@ import javax.swing.JPanel;
 
 public class Conta implements CreditoInterface, DebitoInterface {
 
-    protected final double taxPoupanca = 1.00;
-    private Agencia agencia_conta;
+    protected final double taxaPoupanca = 1.00;
+    private Agencia agenciaConta;
     private int numero;
 
     private double saldo;
 
-    public Conta(Agencia agencia_conta,int numero) {
+    public Conta(Agencia agenciaConta, int numero) {
         this.numero = numero;
-        this.agencia_conta = agencia_conta;
+        this.agenciaConta = agenciaConta;
         this.saldo = 0.0;
-        
+
     }
 
-    public Agencia getAgencia_conta() {
-        return agencia_conta;
+    public Agencia getAgenciaConta() {
+        return agenciaConta;
     }
 
-    
-    
-    public void setAgencia_conta(Agencia agencia_conta) {
-        this.agencia_conta = agencia_conta;
+    public void setAgenciaConta(Agencia agenciaConta) {
+        this.agenciaConta = agenciaConta;
     }
 
     public double getSaldo() {
@@ -53,7 +51,7 @@ public class Conta implements CreditoInterface, DebitoInterface {
     @Override
     public void depositar(double valor) {
         this.setSaldo(this.consultarSaldo() + valor);
-           JOptionPane.showMessageDialog(null, "Depósito realizado com sucesso!");
+        JOptionPane.showMessageDialog(null, "Depósito realizado com sucesso!");
     }
 
     @Override

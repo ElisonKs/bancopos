@@ -1,20 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package bancopos;
 
-/**
- *
- * @author Elison
- */
 public class ContaPoupanca extends Conta {
 
     private final double taxaTransferencia = 1.50;
 
-    public ContaPoupanca(int numero, Agencia agencia_conta) {
-        super(agencia_conta,numero);
+    public ContaPoupanca(int numero, Agencia agenciaConta) {
+        super(agenciaConta, numero);
     }
 
     @Override
@@ -22,7 +13,7 @@ public class ContaPoupanca extends Conta {
         if (valor > 1000) {
             System.out.println("Limite de saque excedido para este tipo de conta.");
         } else {
-            super.sacar(valor + super.taxPoupanca);
+            super.sacar(valor + super.taxaPoupanca);
         }
     }
 

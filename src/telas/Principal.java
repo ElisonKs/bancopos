@@ -1,14 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package telas;
 
-/**
- *
- * @author Elison
- */
 public class Principal extends javax.swing.JFrame {
 
     /**
@@ -74,15 +65,15 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-      Login_Administrativo login = new Login_Administrativo();
-      login.setLocationRelativeTo(null);
-      login.setVisible(true);
+        Login_Administrativo login = new Login_Administrativo();
+        login.setLocationRelativeTo(null);
+        login.setVisible(true);
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-     Login_Usuario login = new Login_Usuario();
-     login.setLocationRelativeTo(null);
-     login.setVisible(true);
+        Login_Usuario login = new Login_Usuario();
+        login.setLocationRelativeTo(null);
+        login.setVisible(true);
     }//GEN-LAST:event_jButton2MouseClicked
 
     /**
