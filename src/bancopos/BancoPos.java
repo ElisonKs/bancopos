@@ -20,7 +20,7 @@ import telas.TransferirForm;
 
 public class BancoPos {
 
-    static ArrayList<ClientePessoaFisica> listaClientesPF = new ArrayList();
+    static ArrayList<ClientePessoaFisica> listaClientesPF  = new ArrayList();
     static ArrayList<ClientePessoaJuridica> listaClientesPJ = new ArrayList();
     static ArrayList<Transacao> listaTransacoes = new ArrayList();
     static MenuForm menu = new MenuForm();
