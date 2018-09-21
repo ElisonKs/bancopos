@@ -33,13 +33,17 @@ public class Conta implements CreditoInterface, DebitoInterface {
     public void setSaldo(double saldo) {
         this.saldo = saldo;
     }
-
+    
+    /*
+        Método sacar que utiliza a exceção em caso de saldo insuficiente
+    */
     @Override
     public void sacar(double valor) throws SaldoInsuficienteException {
         if (this.consultarSaldo() >= valor) {
             setSaldo(this.consultarSaldo() - valor);
             JOptionPane.showMessageDialog(null, "Saque realizado com sucesso!");
         } else {
+            JOptionPane.showMessageDialog(null, "Saldo Insuficiente!");
             throw new SaldoInsuficienteException();
         }
     }

@@ -101,7 +101,8 @@ public class BancoPos {
                                 while(novoSaque.getValorSaque() == 0)
                                 {
                                     Thread.sleep(500);
-                                } 
+                                }
+                                //Método usado para sacar, lança exceção em caso de saldo insuficiente.
                                 contaCliente.sacar(novoSaque.getValorSaque());
                                 Date dataSaque = new Date(2018,9,17);
                                 Transacao nova_Trasancao = new Transacao(novoSaque.getNumeroConta(),novoSaque.getValorSaque(),TipoTransacao.SAQUE,dataSaque);
