@@ -14,11 +14,10 @@ public class ContaCorrente extends Conta {
 
     @Override
     public void sacar(double valor) throws SaldoInsuficienteException {
-        try {
-            super.sacar(valor);
-        } catch (SaldoInsuficienteException e) {
+        
+        super.sacar(valor);
 
-        }
+        
     }
 
 }

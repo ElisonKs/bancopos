@@ -9,7 +9,7 @@ public class ContaPoupanca extends Conta {
     }
 
     @Override
-    public void sacar(double valor) throws SaldoInsuficienteException {
+    public void sacar(double valor) throws SaldoInsuficienteException{
         if (valor > 1000) {
             System.out.println("Limite de saque excedido para este tipo de conta.");
         } else {
