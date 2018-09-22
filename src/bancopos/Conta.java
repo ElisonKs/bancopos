@@ -3,14 +3,31 @@ package bancopos;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+/*
+    Implementação do Requisito 8 - Pelo menos três classes do sistema 
+    devem implementar uma interface. Uma destas classes deve implementar, pelo menos, duas interfaces
+    Essa classe implementa duas interfaces, uma de operações de crédito e outra de operações de débito
+*/
 public class Conta implements CreditoInterface, DebitoInterface {
-
+    /*
+        Implementação do Requisito 6.1 - Deve declarar algum atributo final em alguma Superclasse
+        Atributo é usado na Classe filha ContaPoupança;
+    */
     protected final double taxaPoupanca = 1.00;
+    /*
+        Implementação do Requisito 5 - Associação por agregação
+        Agencia pode existir sem necessariamente ter uma Conta
+    */
     private Agencia agenciaConta;
     private int numero;
 
     private double saldo;
-
+    
+    /*
+        Implementação do requisito 3 - Pelo menos duas classes do projeto devem 
+        possuir um construtor declarado
+        Construtor implementado para inicializar atributos da classe Cliente
+    */
     public Conta(Agencia agenciaConta, int numero) {
         this.numero = numero;
         this.agenciaConta = agenciaConta;
@@ -35,7 +52,8 @@ public class Conta implements CreditoInterface, DebitoInterface {
     }
     
     /*
-        Método sacar que utiliza a exceção em caso de saldo insuficiente
+        Implementação do requisito 11 - Uma exceção deve ser criada, levantada e tratada pelo programa
+        Lança exceção SaldoInsuficienteException no caso do valor ser maior que o saldo
     */
     @Override
     public void sacar(double valor) throws SaldoInsuficienteException {
