@@ -235,11 +235,13 @@ public class BancoPos {
                        investirForm novoInvestimento = new investirForm();
                        novoInvestimento.setLocationRelativeTo(null);
                        novoInvestimento.carregarSaldoAnterior(String.format("%.2f",novoFundo.objeto.getSaldo()));
+                       // Implementação do requisito 13, onde a taxa anterior é recuperada do arquivo
                        novoInvestimento.carregarRendimentoAnterior(LerEscreverArquivo.getTaxa());
                        novoFundo.objeto.render();
                        novoInvestimento.carregarSaldoAtual(String.format("%.2f",novoFundo.objeto.getSaldo()));
                        novoInvestimento.carregarTaxa(String.format("%.2f",novoFundo.objeto.getRendimento()));
                        novoInvestimento.desabilitarPerspectiva();
+                       // Implementação do requisito 13, onde a taxa é gravada no arquivo
                        LerEscreverArquivo.gravarTaxa(String.format("%.2f",novoFundo.objeto.getRendimento()));
                        novoInvestimento.mostrarRendimentoAnterior();
                        novoInvestimento.setVisible(true);
