@@ -12,7 +12,7 @@ public class RendaVariavel extends Investimento {
     @Override
     public void render(){
         //saldo += (saldo * rendimento);
-        setSaldo(getSaldo()+(getSaldo()*getRendimento()));
+        setSaldo(getSaldo()+(getSaldo()*getRendimento()/100));
        
     }
 }

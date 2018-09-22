@@ -15,4 +15,9 @@ public class RendaFixa extends Investimento {
         setSaldo(getSaldo() + (getSaldo() * getRendimento()));
     }
 
+    public double getRendFixo() {
+        return rendFixo;
+    }
+    
+
 }
