@@ -7,7 +7,7 @@ package bancopos;
 */
 public class RendaFixa extends Investimento {
 
-    private final double rendFixo = 0.008;
+    private final double rendFixo = 0.8;
 
     public RendaFixa(double valorInvestido) {
         setRendimento(rendFixo);
@@ -16,7 +16,7 @@ public class RendaFixa extends Investimento {
 
     @Override
     public void render() {
-        setSaldo(getSaldo() + (getSaldo() * getRendimento()));
+        setSaldo(getSaldo() + (getSaldo() * getRendimento()/100));
     }
 
     public double getRendFixo() {

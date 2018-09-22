@@ -56,7 +56,7 @@ public class investirForm extends javax.swing.JDialog {
 
         jLabel1.setText("Saldo Anterior");
 
-        jLabel2.setText("Taxa de Rendimento");
+        jLabel2.setText("Taxa de Rendimento (%)");
 
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,7 +78,7 @@ public class investirForm extends javax.swing.JDialog {
             }
         });
 
-        jLabel4.setText("Rendimento Anterior");
+        jLabel4.setText("Rendimento Anterior (%)");
 
         jLabel7.setText("INVESTIMENTO");
 
@@ -105,7 +105,7 @@ public class investirForm extends javax.swing.JDialog {
                                 .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel4)
                                 .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,7 +149,7 @@ public class investirForm extends javax.swing.JDialog {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-      PerspectivaRF.CalcPerspRF(Double.parseDouble(jTextField1.getText()));
+      PerspectivaRF.calcPerspRF(Double.parseDouble(jTextField1.getText()));
     }//GEN-LAST:event_jButton1MouseClicked
     
     public void carregarRendimentoAnterior(String texto)
