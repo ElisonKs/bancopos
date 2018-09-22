@@ -37,7 +37,7 @@ public class BancoPos {
         return opcao;
     }
 
-    public static void main(String[] args) throws ParseException, InterruptedException, SaldoInsuficienteException {
+    public static void main(String[] args) throws ParseException, InterruptedException, SaldoInsuficienteException, IOException {
 
         int opcao = 0;
 
@@ -78,7 +78,7 @@ public class BancoPos {
                         }
                     }
                 
-                    consultarSaldo.dispose();
+                 
                 
                   break;
                 
@@ -226,10 +226,13 @@ public class BancoPos {
                        investirForm novoInvestimento = new investirForm();
                        novoInvestimento.setLocationRelativeTo(null);
                        novoInvestimento.carregarSaldoAnterior(String.format("%.2f",novoFundo.objeto.getSaldo()));
+                       novoInvestimento.carregarRendimentoAnterior(LerEscreverArquivo.getTaxa());
                        novoFundo.objeto.render();
                        novoInvestimento.carregarSaldoAtual(String.format("%.2f",novoFundo.objeto.getSaldo()));
                        novoInvestimento.carregarTaxa(String.format("%.2f",novoFundo.objeto.getRendimento()));
                        novoInvestimento.desabilitarPerspectiva();
+                       LerEscreverArquivo.gravarTaxa(String.format("%.2f",novoFundo.objeto.getRendimento()));
+                       novoInvestimento.mostrarRendimentoAnterior();
                        novoInvestimento.setVisible(true);
                         
                     }
@@ -237,14 +240,7 @@ public class BancoPos {
                    
                     break;
                 case 7:
-                    LerEscreverArquivo salvar = new LerEscreverArquivo();
-                     {
-                        try {
-                            salvar.gravarSaldosPF(listaClientesPF);
-                        } catch (IOException ex) {
-                            Logger.getLogger(BancoPos.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                    }
+                   
                      System.exit(0);
                     break;
                     

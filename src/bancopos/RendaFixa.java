@@ -11,7 +11,6 @@ public class RendaFixa extends Investimento {
 
     @Override
     public void render() {
-        //this.saldo += (this.saldo * this.rendimento);
         setSaldo(getSaldo() + (getSaldo() * getRendimento()));
     }
 
