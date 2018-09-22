@@ -10,6 +10,11 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import javax.swing.text.MaskFormatter;
 
+/*
+    Implementação do requisito 13 - Alguma informação do sistema deve ser guardada 
+    em um arquivo e depois recuperada e usada.
+    A classe é responsável por escrever um arquivo que guarda a taxa de rendimento variável
+*/
 public class LerEscreverArquivo {
 
     File arquivoPF = new File("saldosPF.txt");

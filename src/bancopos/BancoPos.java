@@ -215,6 +215,11 @@ public class BancoPos {
                     tipoFundo = Integer.parseInt(selecionarTipo.getEntrada());
                     if(tipoFundo == 1)
                     {
+                       /*
+                            Implementação do Requisito 7.4 - Polimorfismo Paramétrico
+                            A classe Fundo é uma classe com objeto genérico, que depois é substituída 
+                            pelo tipo RendaFixa
+                        */
                        Fundo<RendaFixa> novoFundo = new Fundo<>(new RendaFixa(valorInvestido));
                        investirForm novoInvestimento = new investirForm();
                        novoInvestimento.setLocationRelativeTo(null);
