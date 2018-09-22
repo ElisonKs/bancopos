@@ -15,6 +15,7 @@ import telas.MenuForm;
 import telas.SacarForm;
 import telas.SaldoForm;
 import telas.TransferirForm;
+import telas.investirForm;
 
 
 public class BancoPos {
@@ -81,7 +82,7 @@ public class BancoPos {
                         }
                     }
                 
-                
+                    consultarSaldo.dispose();
                 
                   break;
                 
@@ -116,7 +117,7 @@ public class BancoPos {
                             }
                         }
                     }
-                     
+                    novoSaque.dispose();
                      
                     break;
                 case 4:
@@ -167,6 +168,7 @@ public class BancoPos {
                     Date dataTransferencia = new Date(2018,9,17);
                     Transacao novaTransacao = new Transacao(novaTransferencia.getNumeroContaOrigem(),novaTransferencia.getNumeroContaDestino(),novaTransferencia.getValorTransferir(),TipoTransacao.TRANSFERENCIA,dataTransferencia);
                     listaTransacoes.add(novaTransacao);
+                    novaTransferencia.dispose();
                     break;
                     
                 case 5:    
@@ -198,7 +200,46 @@ public class BancoPos {
                                 
                             }
                         }
-                    }        
+                    }  
+                    novoDeposito.dispose();
+                    break;
+                case 6:
+                    Integer tipoFundo;
+                    Double valorInvestido =  500.00;
+                    EntradaDados selecionarTipo = new EntradaDados();
+                    selecionarTipo.abrirEntrada("1 para Renda Fixa ou 2 para Renda Variável");
+                    while(selecionarTipo.getEntrada() == "")
+                    {
+                        Thread.sleep(500);
+                    }
+                    tipoFundo = Integer.parseInt(selecionarTipo.getEntrada());
+                    if(tipoFundo == 1)
+                    {
+                       Fundo<RendaFixa> novoFundo = new Fundo<>(new RendaFixa(valorInvestido));
+                       investirForm novoInvestimento = new investirForm();
+                       novoInvestimento.setLocationRelativeTo(null);
+                       novoInvestimento.carregarSaldoAnterior(Double.toString(novoFundo.objeto.getSaldo()));
+                       novoFundo.objeto.render();
+                       novoInvestimento.carregarSaldoAtual(Double.toString(novoFundo.objeto.getSaldo()));
+                       novoInvestimento.carregarTaxa(Double.toString(novoFundo.objeto.getRendFixo()));
+                       novoInvestimento.setVisible(true);
+                    }
+                    else if(tipoFundo == 2)
+                    {
+                         Fundo<RendaVariavel> novoFundo = new Fundo<>(new RendaVariavel(valorInvestido));
+                       investirForm novoInvestimento = new investirForm();
+                       novoInvestimento.setLocationRelativeTo(null);
+                       novoInvestimento.carregarSaldoAnterior(String.format("%.2f",novoFundo.objeto.getSaldo()));
+                       novoFundo.objeto.render();
+                       novoInvestimento.carregarSaldoAtual(String.format("%.2f",novoFundo.objeto.getSaldo()));
+                       novoInvestimento.carregarTaxa(String.format("%.2f",novoFundo.objeto.getRendimento()));
+                       novoInvestimento.desabilitarPerspectiva();
+                       novoInvestimento.setVisible(true);
+                        
+                    }
+                    
+                   
+                    break;
                 case 7:
                     LerEscreverArquivo salvar = new LerEscreverArquivo();
                      {
@@ -208,7 +249,9 @@ public class BancoPos {
                             Logger.getLogger(BancoPos.class.getName()).log(Level.SEVERE, null, ex);
                         }
                     }
+                     System.exit(0);
                     break;
+                    
 
             }
 
