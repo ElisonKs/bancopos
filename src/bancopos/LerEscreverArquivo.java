@@ -3,6 +3,7 @@ package bancopos;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -17,33 +18,33 @@ import javax.swing.text.MaskFormatter;
 */
 public class LerEscreverArquivo {
 
-    File arquivoPF = new File("saldosPF.txt");
+    static File arquivoTaxa = new File("TaxaRendimento.txt");
 
-    public void gravarSaldosPF(ArrayList<ClientePessoaFisica> clientes) throws IOException, ParseException {
-        int i, y;
-        MaskFormatter mf = new MaskFormatter("####");
-        mf.setValueContainsLiteralCharacters(false);
-        if (!arquivoPF.exists()) {
-            arquivoPF.createNewFile();
+    public static void gravarTaxa(String taxa) throws IOException, ParseException {
+        if (!arquivoTaxa.exists()) {
+            arquivoTaxa.createNewFile();
         }
-        FileWriter fw = new FileWriter(arquivoPF);
+        FileWriter fw = new FileWriter(arquivoTaxa);
         BufferedWriter bw = new BufferedWriter(fw);
-        for (i = 0; i < clientes.size(); i++) {
-            bw.write("Cliente   " + clientes.get(i).getId());
-            bw.newLine();
-            bw.newLine();
-            for (y = 0; y < clientes.get(i).contasCliente.size(); y++) {
-                String numeroAux, saldoAux;
-                numeroAux = Integer.toString(clientes.get(i).contasCliente.get(y).getNumero());
-                numeroAux = mf.valueToString(numeroAux);
-                saldoAux = Double.toString(clientes.get(i).contasCliente.get(y).getSaldo());
-                bw.write(numeroAux + saldoAux);
-                bw.newLine();
-
-            }
-            bw.newLine();
-        }
+       
+        bw.write(taxa);
         bw.close();
         fw.close();
+    }
+    
+    public static String getTaxa() throws FileNotFoundException, IOException
+    {
+        String  taxa;
+        if (arquivoTaxa.exists())
+        {
+            FileReader fr = new FileReader(arquivoTaxa);
+            BufferedReader br = new BufferedReader(fr);
+            taxa = br.readLine();
+        }
+        else
+        {
+            taxa = "0";
+        }
+        return taxa;
     }
 }
