@@ -77,7 +77,7 @@ public class BancoPos {
                         }
                     }
                 
-                
+                    consultarSaldo.dispose();
                 
                   break;
                 
@@ -112,7 +112,7 @@ public class BancoPos {
                             }
                         }
                     }
-                     
+                    novoSaque.dispose();
                      
                     break;
                 case 4:
@@ -163,6 +163,7 @@ public class BancoPos {
                     Date dataTransferencia = new Date(2018,9,17);
                     Transacao novaTransacao = new Transacao(novaTransferencia.getNumeroContaOrigem(),novaTransferencia.getNumeroContaDestino(),novaTransferencia.getValorTransferir(),TipoTransacao.TRANSFERENCIA,dataTransferencia);
                     listaTransacoes.add(novaTransacao);
+                    novaTransferencia.dispose();
                     break;
                     
                 case 5:    
@@ -194,7 +195,9 @@ public class BancoPos {
                                 
                             }
                         }
-                    }        
+                    }  
+                    novoDeposito.dispose();
+                    break;
                 case 7:
                     LerEscreverArquivo salvar = new LerEscreverArquivo();
                      {
