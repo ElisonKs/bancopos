@@ -1,5 +1,10 @@
 package bancopos;
 
+/*
+    Implementação do Requisito 10 - Classes abstratas. Pelo menos duas. 
+    Certamente que as concretas também devem ser implementadas.
+    Extende a classe abstrata Cliente
+*/
 public class ClientePessoaJuridica extends Cliente {
 
     private int cnpj;

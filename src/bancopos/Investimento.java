@@ -1,5 +1,10 @@
 package bancopos;
 
+/*
+    Implementação do Requisito 10 - Classes abstratas. Pelo menos duas. 
+    Certamente que as concretas também devem ser implementadas.
+    Classe investimento serve de base para as classes RendaFixa e RendaVariável
+*/
 public abstract class Investimento {
 
     private double rendimento;

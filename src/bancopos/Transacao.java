@@ -7,6 +7,7 @@ public class Transacao {
     private int numeroContaOrigem;
     private int numeroContaDestino;
     private double valorTransacao;
+    // Implementação do Requisito 1.3 - Enumeração de tipo de transções.
     private TipoTransacao tipoTransacao;
     private Date dataTransacao;
 

@@ -1,4 +1,3 @@
-
 package bancopos;
 
 import java.io.IOException;
@@ -19,7 +18,11 @@ import telas.TransferirForm;
 
 
 public class BancoPos {
-
+    
+    /*
+        Requisito 1.4 - Deve ter pelo menos um atributo ArrayList
+        ArrayList criado para guardar uma coleção de Clientes
+    */
     static ArrayList<ClientePessoaFisica> listaClientesPF  = new ArrayList();
     static ArrayList<ClientePessoaJuridica> listaClientesPJ = new ArrayList();
     static ArrayList<Transacao> listaTransacoes = new ArrayList();
@@ -53,6 +56,7 @@ public class BancoPos {
                     Date data2 = new Date(2018, 9, 9);
                     imprimirExtrato(data1, data2);
                     Date data3 = new Date(2018,9,17);
+                    // Utilização do método imprimirExtrato() - Requisito 2.1
                     imprimirExtrato(data1,data2,data3);
                     break;
                 case 2:
@@ -210,7 +214,11 @@ public class BancoPos {
 
         }
     }
-
+    
+    /*
+        Implementação do Requisito 2.1 - Algum método deve ter uma lista de argumentos variados
+        Método imprime um extrato de transação de acordo com as datas passadas
+    */
     public static void imprimirExtrato(Date... datas) {
         System.out.println("-------------------");
         for (Date data : datas) {
@@ -225,14 +233,21 @@ public class BancoPos {
 
     public static void carregarDados() {
         Cliente pf1, pf2;
+
+        // Utilização do Requisito 3 - Construtor sendo utilizado para criar um Cliente
         pf1 = new ClientePessoaFisica("02860189505", "Elison Nunes", 1, "Rua do IMperador 76", "elison.nunes@gmail.com", "87988540970");
         Agencia agenciaAux = new Agencia(969, "Rua das Flores 25", "8738664567");
+        // Utilização do Requisito 3 - Construtor sendo utilizado para criar uma Conta
         ContaCorrente contaCorrenteAux = new ContaCorrente(1, agenciaAux, 3500);
         ContaPoupanca contaPoupancaAux = new ContaPoupanca(2, agenciaAux);
         pf1.contasCliente.add(contaCorrenteAux);
         pf1.contasCliente.add(contaPoupancaAux);
         listaClientesPF.add((ClientePessoaFisica) pf1);
-
+        
+        /*
+            Implementação do Requisito 7.2, onde o atributo foi declarado como Cliente, 
+            porém foi instanciado como ClientePessoaFísica
+        */
         pf2 = new ClientePessoaFisica("9505", "Vinicius Barbosa", 2, "Rua do Coqueiro 25", "alenvi@gmail.com", "8798854555");
         agenciaAux = new Agencia(969, "Rua das Flores 25", "8738664567");
         contaCorrenteAux = new ContaCorrente(3, agenciaAux, 4000);

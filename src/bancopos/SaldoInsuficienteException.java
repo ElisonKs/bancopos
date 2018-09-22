@@ -2,7 +2,8 @@ package bancopos;
 
 
 /*
-    Exceção criada para o caso da conta não ser saldo suficiente para um saque.
+    Implementação do Requisito 11 - Uma exceção deve ser criada, levantada e tratada pelo programa
+    Exceção criada para o caso da conta não ter saldo suficiente para um saque.
 */
 public class SaldoInsuficienteException extends Exception {
 
